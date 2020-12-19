@@ -31,9 +31,6 @@ app.use(express.static(publicFont));
 var routes = require('./routes/routes.js');
 
 app.get('/', routes.get_home);
-app.get('/about', routes.get_about);
-app.get('/content', routes.get_content);
-app.get('/journal', routes.get_journal);
 
 app.listen(80, function () {
     console.log('Listening on port 80!');

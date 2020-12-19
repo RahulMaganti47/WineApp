@@ -26,3 +26,4 @@ dynamo.createTables(function(err) {
     console.log('Tables have been created');
   }
 });
+
