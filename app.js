@@ -23,14 +23,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-var publicImg = require('path').join(__dirname,'/img');
-var publicFont = require('path').join(__dirname, '/font');
-app.use(express.static(publicImg));
-app.use(express.static(publicFont));
+// var publicImg = require('path').join(__dirname,'/img');
+// var publicFont = require('path').join(__dirname, '/fonts');
+// app.use(express.static(publicImg));
+// app.use(express.static(publicFont));
+// app.use(express.static('fonts'));
+
+var publicAssets = require('path').join(__dirname, '/assets');
+app.use(express.static(publicAssets));
 
 var routes = require('./routes/routes.js');
 
 app.get('/', routes.get_home);
+app.post('/checkID', routes.check_id);
+app.get('/feed', routes.get_feed);
 
 app.listen(80, function () {
     console.log('Listening on port 80!');
